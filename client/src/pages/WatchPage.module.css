@@ -1,0 +1,41 @@
+.pageContainer {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 8rem 2rem 2rem; /* Padding to account for the absolute navbar */
+}
+
+.playerWrapper {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background-color: #000;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.detailsWrapper {
+  margin-top: 2rem;
+  padding: 1rem;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 800;
+}
+
+.metadata {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  color: var(--secondary-text);
+  font-weight: 500;
+}
+
+.description {
+  margin-top: 1.5rem;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  max-width: 800px;
+  color: var(--primary-text);
+  white-space: pre-wrap; /* Preserves line breaks from the textarea */
+}

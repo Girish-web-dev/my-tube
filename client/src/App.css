@@ -1,0 +1,39 @@
+.app-container {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  /* This ensures the content is not affected by the animated body background's overflow setting */
+  position: relative;
+  z-index: 1;
+}
+
+.main-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  /* This is critical for preventing layout bugs */
+  overflow: hidden;
+}
+
+.page-wrapper {
+  flex-grow: 1;
+  /* This makes ONLY the content area scrollable, not the whole page */
+  overflow-y: auto;
+  padding: 2rem;
+}
+
+/* Custom scrollbar styling for a modern look */
+.page-wrapper::-webkit-scrollbar {
+  width: 8px;
+}
+.page-wrapper::-webkit-scrollbar-track {
+  background: var(--surface-1);
+}
+.page-wrapper::-webkit-scrollbar-thumb {
+  background: var(--surface-2);
+  border-radius: 4px;
+}
+.page-wrapper::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-accent);
+}

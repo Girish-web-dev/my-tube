@@ -1,0 +1,72 @@
+/* Import the Inter font from Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display.swap");
+
+:root {
+  --font-sans: "Inter", sans-serif;
+
+  /* Color Palette - Corrected Black Theme */
+  --background: #000000; /* Pure black for the main page */
+  --surface-1: #111111; /* Very dark grey for Sidebar and Header */
+  --surface-2: #222222; /* Lighter grey for hover states and cards */
+  --primary-accent: #007bff;
+  --primary-accent-hover: #0056b3;
+
+  --primary-text: #eaeaea;
+  --secondary-text: #888888;
+  --border-color: #2d2d2d; /* A slightly more visible border color */
+
+  --glow-effect: 0 0 15px rgba(0, 123, 255, 0.4);
+}
+
+/* ... (Keep the rest of the global styles: *, body, a, h1, animations, etc.) ... */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: var(--font-sans);
+  background: var(--background);
+  color: var(--secondary-text);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+h1,
+h2,
+h3 {
+  color: var(--primary-text);
+  font-weight: 700;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* ... etc ... */
+
+body[data-theme="light"] {
+  --background: #f9fafb; /* A very light grey */
+  --surface-1: #ffffff; /* Pure white for Sidebar and Header */
+  --surface-2: #f3f4f6; /* Light grey for hover states and cards */
+  --primary-accent: #007bff;
+  --primary-accent-hover: #0056b3;
+  --error-accent: #ef4444;
+
+  --primary-text: #111827; /* Dark text for high contrast */
+  --secondary-text: #6b7280;
+  --border-color: #e5e7eb;
+
+  --glow-effect: 0 0 15px rgba(0, 123, 255, 0.2);
+}

@@ -1,0 +1,62 @@
+.filterTags {
+  display: flex;
+  flex-wrap: wrap; /* Allow tags to wrap on smaller screens */
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.tag {
+  font-family: var(--font-sans);
+  padding: 0.6rem 1.2rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background-color: var(--surface-1);
+  color: var(--secondary-text);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-transform: capitalize;
+}
+
+.tag:hover {
+  color: var(--primary-text);
+  border-color: var(--secondary-text);
+}
+
+.tag.activeTag {
+  background-color: var(--primary-accent);
+  color: white;
+  border-color: var(--primary-accent);
+}
+
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.emptyMessage {
+  color: var(--secondary-text);
+  font-size: 1.1rem;
+  grid-column: 1 / -1; /* Make it span the full width of the grid */
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.endMessage {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 2rem;
+  color: var(--secondary-text);
+  font-weight: 500;
+}
+
+.pageContainer {
+  padding: 2rem;
+}
+
+.pageTitle {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 2rem;
+}

@@ -1,0 +1,103 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  width: 260px;
+  background-color: var(--surface-1);
+  padding: 2rem 1.5rem;
+  flex-shrink: 0;
+  border-right: 1px solid var(--border-color);
+  z-index: 10;
+}
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--primary-text);
+  margin-bottom: 2.5rem;
+  padding-left: 0.5rem;
+  transition: transform 0.2s ease-in-out; /* NEW */
+}
+
+.logoContainer:hover {
+  transform: scale(1.05); /* NEW */
+}
+
+.logoIcon {
+  width: 36px;
+  height: 36px;
+  background: linear-gradient(45deg, var(--primary-accent), #00c6ff);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4px;
+}
+
+.logoInnerCircle {
+  width: 100%;
+  height: 100%;
+  background-color: var(--background);
+  border-radius: 50%;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.navHeader {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--secondary-text);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 0 1rem;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--secondary-text);
+  transition: all 0.2s ease-in-out;
+  transform-origin: left center; /* NEW */
+}
+
+.navLink:hover {
+  background-color: var(--surface-2);
+  color: var(--primary-text);
+  transform: translateX(5px); /* NEW */
+}
+
+.navLink.active {
+  background-color: var(--primary-accent);
+  color: white;
+  font-weight: 600;
+}
+
+.interestText {
+  text-transform: capitalize;
+}
+
+.spacer {
+  flex-grow: 1;
+}
+
+.editInterests {
+  background-color: var(--surface-2);
+  font-weight: 600;
+}
+
+.editInterests:hover {
+  background-color: #333;
+}
