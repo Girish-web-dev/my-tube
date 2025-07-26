@@ -1,25 +1,25 @@
 .cardLink {
   display: flex;
   flex-direction: column;
+
   background-color: var(--surface-1);
+
   border: 1px solid var(--border-color);
   border-radius: 12px;
   overflow: hidden;
-  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-  opacity: 0;
-  animation: fadeIn 0.5s ease-out forwards;
+  transition: transform 0.2s ease-in-out;
 }
 
 .cardLink:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  border-color: var(--primary-accent);
 }
 
 .thumbnailWrapper {
   position: relative;
   width: 100%;
   aspect-ratio: 16 / 9;
-  background-color: var(--surface-2);
+  background-color: var(--surface-2); /* A visible placeholder color */
 }
 
 .thumbnail {
@@ -63,7 +63,7 @@
   align-items: center;
   cursor: pointer;
   opacity: 0;
-  transition: all 0.2s ease;
+  transition: opacity 0.2s ease;
 }
 
 .cardLink:hover .actionButton {
