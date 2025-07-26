@@ -36,7 +36,7 @@
 .searchInput:focus {
   outline: none;
   border-color: var(--primary-accent);
-  animation: glowPulse 1.5s infinite alternate; /* NEW */
+  animation: glowPulse 1.5s infinite alternate; /* Use the glow animation */
 }
 
 .userActions {
@@ -62,7 +62,7 @@
 .actionButton:hover {
   color: var(--primary-text);
   background-color: var(--surface-2);
-  transform: translateY(-2px); /* NEW */
+  transform: translateY(-2px);
 }
 
 .profileContainer {
