@@ -18,11 +18,11 @@
   color: var(--primary-text);
   margin-bottom: 2.5rem;
   padding-left: 0.5rem;
-  transition: transform 0.2s ease-in-out; /* NEW */
+  transition: transform 0.2s ease-in-out;
 }
 
 .logoContainer:hover {
-  transform: scale(1.05); /* NEW */
+  transform: scale(1.05);
 }
 
 .logoIcon {
@@ -70,19 +70,20 @@
   font-weight: 500;
   color: var(--secondary-text);
   transition: all 0.2s ease-in-out;
-  transform-origin: left center; /* NEW */
+  transform-origin: left center;
 }
 
 .navLink:hover {
   background-color: var(--surface-2);
   color: var(--primary-text);
-  transform: translateX(5px); /* NEW */
+  transform: translateX(5px);
 }
 
 .navLink.active {
   background-color: var(--primary-accent);
   color: white;
   font-weight: 600;
+  box-shadow: var(--glow-effect); /* Add glow to active link */
 }
 
 .interestText {
