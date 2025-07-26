@@ -12,7 +12,9 @@ const VideoCard = ({
   isSavedPage = false,
   onUnsave,
 }) => {
-  if (!video || !(video.id || video._id)) return null;
+  if (!video || !video.id) {
+    return null;
+  }
 
   const formatViews = (views) => {
     if (!views) return "0";
@@ -69,14 +71,12 @@ const VideoCard = ({
     };
   }
 
-  if (!videoData.thumbnailUrl) return null;
+  if (!videoData.thumbnailUrl) {
+    return null;
+  }
 
   return (
-    <Link
-      to={videoData.url}
-      className={styles.cardLink}
-      style={{ animationDelay: `${index * 50}ms` }}
-    >
+    <Link to={videoData.url} className={styles.cardLink}>
       <div className={styles.thumbnailWrapper}>
         <img
           src={videoData.thumbnailUrl}
