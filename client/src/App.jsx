@@ -35,34 +35,32 @@ const AppContent = () => {
     location.pathname === "/auth" || location.pathname === "/interests";
 
   return (
-    <>
-      <Routes future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
-        {isAuthPage ? (
-          <>
-            <Route path="/auth" element={<AuthPage />} />
-            <Route path="/interests" element={<InterestsPage />} />
-          </>
-        ) : (
-          <Route
-            path="/*"
-            element={
-              <MainLayout>
-                <Routes>
-                  <Route path="/" element={<HomePage />} />
-                  <Route path="/trending" element={<TrendingPage />} />
-                  <Route path="/saved" element={<SavedVideosPage />} />
-                  <Route path="/profile" element={<ProfilePage />} />
-                  <Route path="/results" element={<SearchResultsPage />} />
-                  <Route path="/watch/yt/:id" element={<WatchPage />} />
-                  <Route path="/watch/:id" element={<WatchPage />} />
-                  <Route path="/upload" element={<UploadPage />} />
-                </Routes>
-              </MainLayout>
-            }
-          />
-        )}
-      </Routes>
-    </>
+    <Routes future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+      {isAuthPage ? (
+        <>
+          <Route path="/auth" element={<AuthPage />} />
+          <Route path="/interests" element={<InterestsPage />} />
+        </>
+      ) : (
+        <Route
+          path="/*"
+          element={
+            <MainLayout>
+              <Routes>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/trending" element={<TrendingPage />} />
+                <Route path="/saved" element={<SavedVideosPage />} />
+                <Route path="/profile" element={<ProfilePage />} />
+                <Route path="/results" element={<SearchResultsPage />} />
+                <Route path="/watch/yt/:id" element={<WatchPage />} />
+                <Route path="/watch/:id" element={<WatchPage />} />
+                <Route path="/upload" element={<UploadPage />} />
+              </Routes>
+            </MainLayout>
+          }
+        />
+      )}
+    </Routes>
   );
 };
 
