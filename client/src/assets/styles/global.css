@@ -1,24 +1,28 @@
-/* Import the Inter font from Google Fonts */
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display.swap");
 
 :root {
   --font-sans: "Inter", sans-serif;
-
-  /* Color Palette - Corrected Black Theme */
-  --background: #000000; /* Pure black for the main page */
-  --surface-1: #111111; /* Very dark grey for Sidebar and Header */
-  --surface-2: #222222; /* Lighter grey for hover states and cards */
+  --background: #000000;
+  --surface-1: #111111;
+  --surface-2: #222222;
   --primary-accent: #007bff;
   --primary-accent-hover: #0056b3;
-
+  --error-accent: #ef4444;
   --primary-text: #eaeaea;
   --secondary-text: #888888;
-  --border-color: #2d2d2d; /* A slightly more visible border color */
-
+  --border-color: #2d2d2d;
   --glow-effect: 0 0 15px rgba(0, 123, 255, 0.4);
 }
 
-/* ... (Keep the rest of the global styles: *, body, a, h1, animations, etc.) ... */
+body[data-theme="light"] {
+  --background: #f9fafb;
+  --surface-1: #ffffff;
+  --surface-2: #f3f4f6;
+  --primary-text: #111827;
+  --secondary-text: #6b7280;
+  --border-color: #e5e7eb;
+  --glow-effect: 0 0 15px rgba(0, 123, 255, 0.2);
+}
 
 * {
   box-sizing: border-box;
@@ -54,19 +58,14 @@ h3 {
     transform: translateY(0);
   }
 }
-/* ... etc ... */
-
-body[data-theme="light"] {
-  --background: #f9fafb; /* A very light grey */
-  --surface-1: #ffffff; /* Pure white for Sidebar and Header */
-  --surface-2: #f3f4f6; /* Light grey for hover states and cards */
-  --primary-accent: #007bff;
-  --primary-accent-hover: #0056b3;
-  --error-accent: #ef4444;
-
-  --primary-text: #111827; /* Dark text for high contrast */
-  --secondary-text: #6b7280;
-  --border-color: #e5e7eb;
-
-  --glow-effect: 0 0 15px rgba(0, 123, 255, 0.2);
+@keyframes glowPulse {
+  0% {
+    box-shadow: var(--glow-effect);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(0, 123, 255, 0.6);
+  }
+  100% {
+    box-shadow: var(--glow-effect);
+  }
 }
