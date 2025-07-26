@@ -1,6 +1,6 @@
 import React, { createContext, useState, useEffect } from "react";
 
-// Get the user's saved theme from localStorage, defaulting to 'dark'
+// Get the user's saved theme from their browser, defaulting to 'dark'
 const savedTheme = localStorage.getItem("theme") || "dark";
 
 export const ThemeContext = createContext();
@@ -14,7 +14,7 @@ export const ThemeProvider = ({ children }) => {
     localStorage.setItem("theme", newTheme);
   };
 
-  // This effect applies the theme to the body tag whenever it changes
+  // This is the magic: it applies the theme to the main body tag
   useEffect(() => {
     document.body.setAttribute("data-theme", theme);
   }, [theme]);
