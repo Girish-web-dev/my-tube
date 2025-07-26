@@ -1,19 +1,17 @@
 import React, { useState, useContext, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
+import { ThemeContext } from "../../context/ThemeContext"; // Import the new ThemeContext
 import styles from "./Header.module.css";
-import { FiSearch, FiSun, FiUser } from "react-icons/fi";
-import UserDropdown from "../UserDropdown"; // Import the new dropdown component
+import { FiSearch, FiSun, FiMoon, FiUser } from "react-icons/fi"; // Import the FiMoon icon
+import UserDropdown from "../UserDropdown";
 
 const Header = () => {
   const { user } = useContext(AuthContext);
+  const { theme, toggleTheme } = useContext(ThemeContext); // Use the new context
   const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState("");
-
-  // NEW: State to control dropdown visibility
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-
-  // NEW: Ref for detecting clicks outside the dropdown
   const dropdownRef = useRef(null);
 
   const handleSearch = (e) => {
@@ -24,17 +22,15 @@ const Header = () => {
     }
   };
 
-  // NEW: Function to close the dropdown if a click is detected outside of it
+  // Effect to close the dropdown if a click is detected outside of it
   useEffect(() => {
     function handleClickOutside(event) {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
         setIsDropdownOpen(false);
       }
     }
-    // Bind the event listener
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
-      // Unbind the event listener on clean up
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [dropdownRef]);
@@ -51,17 +47,26 @@ const Header = () => {
           className={styles.searchInput}
         />
       </form>
-      <div className={styles.userActions}>
-        <button className={styles.actionButton}>
-          <FiSun />
-        </button>
 
-        {/* THE FIX: The user icon is now a button that opens the dropdown */}
+      <div className={styles.userActions}>
+        {/* --- THIS IS THE FUNCTIONAL THEME TOGGLE BUTTON --- */}
+        <button
+          className={styles.actionButton}
+          onClick={toggleTheme}
+          title="Toggle Theme"
+        >
+          {/* It conditionally renders the correct icon based on the current theme */}
+          {theme === "light" ? <FiMoon /> : <FiSun />}
+        </button>
+        {/* --- END OF THEME TOGGLE --- */}
+
+        {/* This is the user profile dropdown logic */}
         {user ? (
           <div className={styles.profileContainer} ref={dropdownRef}>
             <button
               className={styles.actionButton}
               onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+              title="Profile"
             >
               <FiUser />
             </button>
@@ -70,7 +75,6 @@ const Header = () => {
             )}
           </div>
         ) : (
-          // Optionally, show a login button if no user is found
           <button
             className={styles.loginButton}
             onClick={() => navigate("/auth")}
