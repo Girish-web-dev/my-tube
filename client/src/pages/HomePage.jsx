@@ -14,28 +14,22 @@ const HomePage = () => {
   const [loadingMore, setLoadingMore] = useState(false);
   const { user } = useContext(AuthContext);
   const [activeFilter, setActiveFilter] = useState('For You');
-  
-  // A ref to the IntersectionObserver, which will watch our trigger element
+ 
   const observer = useRef();
-  
-  // This is the callback function for our IntersectionObserver.
-  // We use useCallback to prevent it from being recreated on every render.
+ 
   const lastVideoElementRef = useCallback(node => {
-    if (loading || loadingMore) return; // Don't do anything if we're already loading
-    if (observer.current) observer.current.disconnect(); // Disconnect the old observer
+    if (loading || loadingMore) return; 
+    if (observer.current) observer.current.disconnect(); 
     
     observer.current = new IntersectionObserver(entries => {
-      // If the trigger element is on screen AND we have a token for the next page...
       if (entries[0].isIntersecting && nextPageToken) {
         loadMoreVideos(); // ...then load more videos!
       }
     });
 
-    if (node) observer.current.observe(node); // Start observing the new trigger element
+    if (node) observer.current.observe(node); 
   }, [loading, loadingMore, nextPageToken]);
 
-
-  // Function to fetch the NEXT page of videos
   const loadMoreVideos = useCallback(async () => {
     if (!nextPageToken || loadingMore) return;
     setLoadingMore(true);
@@ -53,8 +47,8 @@ const HomePage = () => {
         id: typeof video.id === 'object' ? video.id.videoId : video.id,
       }));
       
-      setVideos(prev => [...prev, ...formattedVideos]); // Append new videos to the existing list
-      setNextPageToken(response.data.data.nextPageToken); // Update the token for the next fetch
+      setVideos(prev => [...prev, ...formattedVideos]); 
+      setNextPageToken(response.data.data.nextPageToken); 
 
     } catch (error) {
       toast.error("Could not load more videos.");
@@ -63,13 +57,11 @@ const HomePage = () => {
     }
   }, [nextPageToken, loadingMore, activeFilter]);
 
-
-  // This effect fetches the INITIAL (first page) of videos when the page loads or the filter changes
   useEffect(() => {
     if (!user) return;
     const fetchInitialVideos = async () => {
       setLoading(true);
-      setVideos([]); // Clear old videos when filter changes
+      setVideos([]); 
       try {
         let response;
         if (activeFilter === 'For You') {
